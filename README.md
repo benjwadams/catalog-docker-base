@@ -29,7 +29,7 @@ subsequent invocations.
 
 ## Create a superuser
 
-Run `docker exec -it ckan ckan-paster --plugin ckan sysadmin add <username> -c /etc/production.ini`
+Run `docker exec -it ckan ckan-paster --plugin ckan sysadmin add <username> -c /etc/ckan/production.ini`
 to add a superuser to CKAN.
 
 ### Optional: Load harvester config
