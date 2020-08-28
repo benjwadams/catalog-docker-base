@@ -9,7 +9,8 @@ COPY "./contrib/scripts/" "/usr/local/bin/"
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && \
                                    apt-get install -q -y git libgeos-dev \
                                                         libxml2-dev \
-                                                         libxslt1-dev && \
+                                                         libxslt1-dev \
+                                                         libudunits2-dev && \
                                    apt-get -q clean && \
                                    rm -rf /var/lib/apt/lists/*
 
@@ -38,7 +39,7 @@ RUN wget 'https://bootstrap.pypa.io/get-pip.py' && python get-pip.py && \
      # installed lxml version
     # fixme: update pycsw version
     ckan-pip install --no-cache-dir pycsw==1.8.6 Shapely==1.5.17 \
-                                    OWSLib==0.16.0 lxml==3.6.2 && \
+                                    OWSLib==0.16.0 lxml==3.6.2 cf_units && \
     pip install ckanapi
 
 # the above appears to be necessary to run separately, or otherwise it results
