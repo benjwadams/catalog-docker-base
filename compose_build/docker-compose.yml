@@ -43,7 +43,9 @@ services:
     healthcheck:
       test: curl --fail localhost:5000 || exit 1
       timeout: 25s
-    command: ckan -c /etc/ckan/production.ini run --host 0.0.0.0
+    sysctls:
+      net.core.somaxconn: 1024
+    command: /srv/app/start_ckan.sh
 
   ckan_gather_harvester:
      <<: *ckan_app
