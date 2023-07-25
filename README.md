@@ -1,7 +1,7 @@
 # catalog-docker-base
 Docker Image for the base CKAN build for all CKAN related images
 
-## Build for CKAN 2.8
+## Build for CKAN 2.9
 
 To run, please have `docker` and `docker-compose` installed and run the
 following in this order:
