@@ -22,7 +22,6 @@ fi
 config="/etc/ckan/production.ini"
 
 # source the original CKAN entrypoint without the final call to exec
-. <(grep -v '^exec' /ckan-entrypoint.sh)
 
 ckan config-tool "$config" \
     "googleanalytics.id=${GA_ID:-none}" \
