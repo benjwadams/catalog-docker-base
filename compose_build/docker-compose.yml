@@ -33,13 +33,10 @@ services:
       - GA_ENABLED=false
 
     volumes:
-      #- /home/badams/devel/catalog-ckan/ckanext/ioos_theme/:/usr/lib/ckan/venv/src/ckanext-ioos-theme/ckanext/ioos_theme/
       - ckan_config:/etc/ckan
       - pycsw_config:/etc/pycsw
       - ckan_storage:/var/lib/ckan
-    #command: ckan --plugin=ckan serve /etc/ckan/production.ini
-    #command: ckan-paster --plugin=ckan serve /etc/ckan/production.ini
-    #entrypoint: sleep 999999
+
     healthcheck:
       test: curl --fail localhost:5000 || exit 1
       timeout: 25s
@@ -88,10 +85,9 @@ services:
       dockerfile: contrib/docker/postgresql/Dockerfile
       args:
         - DS_RO_PASS=${DATASTORE_READONLY_PASSWORD}
-        - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        - POSTGRES_PASSWORD=mLoon#hierophant
     environment:
       - DS_RO_PASS=${DATASTORE_READONLY_PASSWORD}
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     volumes:
       - pg_data:/var/lib/postgresql/data
     ports:
